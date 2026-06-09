@@ -6,6 +6,7 @@ from django.conf import settings
 
 def generate_qr_code(request):
     if request.method == "POST":
+       os.makedirs('media', exist_ok=True)
        form = QRCodeForm(request.POST)
        if form.is_valid():
            res_name = form.cleaned_data['restaurant_name']
